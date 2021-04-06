@@ -1,0 +1,20 @@
+<nav class="navbar navbar-dark bg-secondary">
+  <span class="navbar-brand mb-0 h1">Currency Converter</span>
+</nav>
+<div class="container">
+  <select class="form-control" id="fromCurrency" #fromCurrency>
+    <option *ngFor='let i of buttons' value={{i.value}}>{{i.id}}</option>
+  </select>
+
+  <input id="amount" class="form-control" type='text' [(ngModel)]='inputCurrency'>
+
+  <select class="form-control" id="toCurrency" #data>
+    <option *ngFor='let j of buttons' value={{j.value}}>{{j.id}}</option>
+  </select>
+
+  <button id="submitButton" class="btn btn-primary" (click)="convert(fromCurrency.value,data.value)">Convert</button>
+</div>
+<div id="result" *ngIf="result != 'NaN' && result != ''" class=" container card">
+  <p id="resValue">{{result}}</p>
+</div>
+<router-outlet></router-outlet>
